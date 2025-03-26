@@ -1,0 +1,98 @@
+﻿<Window x:Name="theWindow"
+        x:Class="Integrative_Programming_Enigma_Machine_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Integrative_Programming_Enigma_Machine_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="1000" SizeToContent="WidthAndHeight" KeyDown="Window_KeyDown" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Width="10" Height="10" Margin="790,425,0,0" Stroke="Black" VerticalAlignment="Top" Opacity="0"/>
+        <Label Content="Control" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ring 1 (S)" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ring 2 (M)" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ring 3 (H)" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblControlRing" Content="Label" HorizontalAlignment="Left" Margin="80,30,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRing1" Content="Label" HorizontalAlignment="Left" Margin="80,61,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRing2" Content="Label" HorizontalAlignment="Left" Margin="80,92,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRing3" Content="Label" HorizontalAlignment="Left" Margin="80,123,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblInput" Content="Input" HorizontalAlignment="Left" Margin="21,386,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="25" FontWeight="Bold" Foreground="#FFCC0808"/>
+        <Label x:Name="lblEncrpyt" Content="Encrypt" HorizontalAlignment="Left" Margin="14,212,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="25" FontWeight="Bold" Foreground="#FF007A9A"/>
+        <Label x:Name="lblEncrpytMirror" Content="Mirror" HorizontalAlignment="Left" Margin="16,294,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="25" FontWeight="Bold" Foreground="#FF007A9A"/>
+        <Button x:Name="btnRotor" Content="Rotor On" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="btnRotor_Click"/>
+        <TextBox x:Name="txtBRing1Init" HorizontalAlignment="Left" Margin="142,11,0,0" TextWrapping="Wrap" Text="0 - 25" VerticalAlignment="Top" Width="41" Height="18" GotFocus="txtBRing1Init_GotFocus" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtBRing2Init" HorizontalAlignment="Left" Margin="214,11,0,0" TextWrapping="Wrap" Text="0 - 25" VerticalAlignment="Top" Width="41" GotFocus="txtBRing2Init_GotFocus" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtBRing3Init" HorizontalAlignment="Left" Margin="281,11,0,0" TextWrapping="Wrap" Text="0 -25" VerticalAlignment="Top" Width="41" Height="18" GotFocus="txtBRing3Init_GotFocus" HorizontalContentAlignment="Center"/>
+        <Label Content="S" HorizontalAlignment="Left" Margin="118,7,0,0" VerticalAlignment="Top"/>
+        <Label Content="M" HorizontalAlignment="Left" Margin="188,7,0,0" VerticalAlignment="Top"/>
+        <Label Content="H" HorizontalAlignment="Left" Margin="260,7,0,0" VerticalAlignment="Top"/>
+
+        <Label Content="Input Message:" HorizontalAlignment="Left" Margin="18,337,0,0" VerticalAlignment="Top" Foreground="#FF860A0A" FontFamily="Arial Black" FontSize="30"/>
+        <Label Content="Encrypted Message:" HorizontalAlignment="Left" Margin="14,156,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FF021552" FontSize="30"/>
+        <Label Content="Encrypted Message with Mirroring:" HorizontalAlignment="Left" Margin="21,250,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="30" FontFamily="Arial Black" Foreground="#FF021552"/>
+        <Label Content="Plugboard (AB CD EF):" HorizontalAlignment="Left" Margin="11,649,0,0" VerticalAlignment="Top" Foreground="#FF289E08" FontSize="30" FontFamily="Arial Black"/>
+        <TextBox x:Name="txtPlugboard" HorizontalAlignment="Left" Margin="390,649,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" TextChanged="txtPlugboard_TextChanged" Height="38" Background="#FFA9FF71"/>
+        <Button x:Name="btnSetPlugboard" Content="Set Plugboard" HorizontalAlignment="Left" Margin="640,649,0,0" VerticalAlignment="Top" Click="btnSetPlugboard_Click" Height="38" Width="136" Foreground="#FF3E9C42" FontFamily="Arial Black" FontSize="15" Background="#FF0D3A09"/>
+
+
+        <Button x:Name="btnQKey" Content="Q" HorizontalAlignment="Left" Height="45" Margin="16,444,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnQKey_Click" />
+        <Button x:Name="btnWKey" Content="W" HorizontalAlignment="Left" Height="45" Margin="67,444,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnWKey_Click"/>
+        <Button x:Name="btnEKey" Content="E" HorizontalAlignment="Left" Height="45" Margin="116,444,0,0" VerticalAlignment="Top" Width="37" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnEKey_Click"/>
+        <Button x:Name="btnRKey" Content="R" HorizontalAlignment="Left" Height="45" Margin="165,444,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnRKey_Click"/>
+        <Button x:Name="btnTKey" Content="T" HorizontalAlignment="Left" Height="45" Margin="213,444,0,0" VerticalAlignment="Top" Width="38" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnTKey_Click"/>
+        <Button x:Name="btnYKey" Content="Y" HorizontalAlignment="Left" Height="45" Margin="260,444,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnYKey_Click"/>
+        <Button x:Name="btnUKey" Content="U" HorizontalAlignment="Left" Height="45" Margin="309,444,0,0" VerticalAlignment="Top" Width="37" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnUKey_Click"/>
+        <Button x:Name="btnIKey" Content="I" HorizontalAlignment="Left" Height="45" Margin="360,444,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnIKey_Click"/>
+        <Button x:Name="btnOKey" Content="O" HorizontalAlignment="Left" Height="45" Margin="408,444,0,0" VerticalAlignment="Top" Width="36" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnOKey_Click"/>
+        <Button x:Name="btnPKey" Content="P" HorizontalAlignment="Left" Height="45" Margin="455,444,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnPKey_Click"/>
+        <Button x:Name="btnAKey" Content="A" HorizontalAlignment="Left" Height="42" Margin="29,507,0,0" VerticalAlignment="Top" Width="38" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnAKey_Click"/>
+        <Button x:Name="btnSKey" Content="S" HorizontalAlignment="Left" Height="42" Margin="83,507,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnSKey_Click"/>
+        <Button x:Name="btnDKey" Content="D" HorizontalAlignment="Left" Height="42" Margin="134,507,0,0" VerticalAlignment="Top" Width="37" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnDKey_Click"/>
+        <Button x:Name="btnFKey" Content="F" HorizontalAlignment="Left" Height="42" Margin="182,507,0,0" VerticalAlignment="Top" Width="36" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnFKey_Click"/>
+        <Button x:Name="btnGKey" Content="G" HorizontalAlignment="Left" Height="42" Margin="231,507,0,0" VerticalAlignment="Top" Width="38" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnGKey_Click"/>
+        <Button x:Name="btnHKey" Content="H" HorizontalAlignment="Left" Height="42" Margin="280,507,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnHKey_Click"/>
+        <Button x:Name="btnJKey" Content="J" HorizontalAlignment="Left" Height="42" Margin="329,507,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnJKey_Click"/>
+        <Button x:Name="btnKKey" Content="K" HorizontalAlignment="Left" Height="42" Margin="373,507,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnKKey_Click"/>
+        <Button x:Name="btnLKey" Content="L" HorizontalAlignment="Left" Height="42" Margin="422,507,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnLKey_Click"/>
+        <Button x:Name="btnZKey" Content="Z" HorizontalAlignment="Left" Height="45" Margin="83,569,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnZKey_Click"/>
+        <Button x:Name="btnXKey" Content="X" HorizontalAlignment="Left" Height="45" Margin="134,569,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnXKey_Click"/>
+        <Button x:Name="btnCKey" Content="C" HorizontalAlignment="Left" Height="45" Margin="180,569,0,0" VerticalAlignment="Top" Width="36" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnCKey_Click"/>
+        <Button x:Name="btnVKey" Content="V" HorizontalAlignment="Left" Height="45" Margin="229,569,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnVKey_Click"/>
+        <Button x:Name="btnBKey" Content="B" HorizontalAlignment="Left" Height="45" Margin="278,569,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnBKey_Click"/>
+        <Button x:Name="btnNKey" Content="N" HorizontalAlignment="Left" Height="45" Margin="324,569,0,0" VerticalAlignment="Top" Width="36" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnNKey_Click"/>
+        <Button x:Name="btnMKey" Content="M" HorizontalAlignment="Left" Height="45" Margin="373,569,0,0" VerticalAlignment="Top" Width="35" Background="#FFFFCBCB" BorderBrush="#FFDC8888" FontFamily="Arial Black" FontSize="25" Foreground="#FFCC0808" Click="btnMKey_Click"/>
+        <Button x:Name="TurnOff" Content="Off" HorizontalAlignment="Left" Height="39" Margin="805,648,0,0" VerticalAlignment="Top" Width="91" Background="#FFCBEDFF" BorderBrush="#FF88BFDC" FontFamily="Arial Black" FontSize="30" Foreground="#FF1708CC" Click="TurnOff_Click"/>
+        <Label x:Name="lblQBulb" Content="Q" HorizontalAlignment="Left" Height="45" Margin="500,447,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblWBulb" Content="W" HorizontalAlignment="Left" Height="45" Margin="540,447,0,0" VerticalAlignment="Top" Width="36" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblEBulb" Content="E" HorizontalAlignment="Left" Height="45" Margin="582,447,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblRBulb" Content="R" HorizontalAlignment="Left" Height="45" Margin="622,447,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblTBulb" Content="T" HorizontalAlignment="Left" Height="45" Margin="664,447,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblYBulb" Content="Y" HorizontalAlignment="Left" Height="45" Margin="712,447,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblUBulb" Content="U" HorizontalAlignment="Left" Height="45" Margin="761,447,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblIBulb" Content="I" HorizontalAlignment="Left" Height="45" Margin="803,447,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblOBulb" Content="O" HorizontalAlignment="Left" Height="45" Margin="843,447,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblPBulb" Content="P" HorizontalAlignment="Left" Height="45" Margin="887,447,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblABulb" Content="A" HorizontalAlignment="Left" Height="45" Margin="500,509,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblSBulb" Content="S" HorizontalAlignment="Left" Height="45" Margin="546,509,0,0" VerticalAlignment="Top" Width="36" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblDBulb" Content="D" HorizontalAlignment="Left" Height="45" Margin="591,508,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblFBulb" Content="F" HorizontalAlignment="Left" Height="45" Margin="633,509,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblGBulb" Content="G" HorizontalAlignment="Left" Height="45" Margin="674,509,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblHBulb" Content="H" HorizontalAlignment="Left" Height="45" Margin="714,509,0,0" VerticalAlignment="Top" Width="36" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblJBulb" Content="J" HorizontalAlignment="Left" Height="45" Margin="765,509,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblKBulb" Content="K" HorizontalAlignment="Left" Height="45" Margin="813,509,0,0" VerticalAlignment="Top" Width="34" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblLBulb" Content="L" HorizontalAlignment="Left" Height="45" Margin="855,509,0,0" VerticalAlignment="Top" Width="36" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblZBulb" Content="Z" HorizontalAlignment="Left" Height="45" Margin="532,568,0,0" VerticalAlignment="Top" Width="34" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblXBulb" Content="X" HorizontalAlignment="Left" Height="45" Margin="584,568,0,0" VerticalAlignment="Top" Width="36" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblCBulb" Content="C" HorizontalAlignment="Left" Height="45" Margin="633,568,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblVBulb" Content="V" HorizontalAlignment="Left" Height="45" Margin="681,568,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblBBulb" Content="B" HorizontalAlignment="Left" Height="45" Margin="732,568,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblNBulb" Content="N" HorizontalAlignment="Left" Height="45" Margin="782,568,0,0" VerticalAlignment="Top" Width="36" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+        <Label x:Name="lblMBulb" Content="M" HorizontalAlignment="Left" Height="46" Margin="833,568,0,0" VerticalAlignment="Top" Width="35" Background="LightBlue" BorderBrush="#FF0E0E0E" FontFamily="Arial Black" FontSize="25" Foreground="#FF0841CC"/>
+
+
+
+    </Grid>
+</Window>
+
+
